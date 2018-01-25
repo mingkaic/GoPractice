@@ -4,7 +4,8 @@ var encToks = serial('0', 10) + serial('a', 26)
 
 // ======== Public ========
 
-// StrConv ... convert baseStr to base-10 representation
+// StrConv ...
+// Convert baseStr to base-10 representation
 func StrConv(baseStr []byte) int64 {
 	var result int64
 	var mul int64 = 1
@@ -16,7 +17,9 @@ func StrConv(baseStr []byte) int64 {
 	return result
 }
 
-// BaseConv ... convert b10 base 10 value to base
+// BaseConv ...
+// Convert b10 (a base-10 value) to
+// specified base representation
 func BaseConv(base, b10 int64) []uint8 {
 	var accum []uint8
 	for b10 > 0 {
@@ -28,9 +31,11 @@ func BaseConv(base, b10 int64) []uint8 {
 	return accum
 }
 
-// EncodeToks ... convert base-n value to its string representation
+// EncodeToks ...
+// Convert base-n value to its string representation
 func EncodeToks(tokens []uint8) string {
 	output := make([]byte, len(tokens))
+	// Assert that 2 <= tok <= 36
 	for i, tok := range tokens {
 		output[i] = encToks[tok]
 	}

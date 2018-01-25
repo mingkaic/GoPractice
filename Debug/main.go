@@ -15,6 +15,6 @@ func main() {
 		}(i)
 	}
 
-	<- done
-	<- done
+	<-done
+	<-done
 }
